@@ -12,7 +12,7 @@
   <title>Rocketseat - React.js - Fundamentos</title>
 
   <style type="text/tailwindcss">
-    @theme {
+    :root {
       --text: #EBEBEB;
       --text-secondary: #6B6B6B;
       --primary: #462878;
@@ -75,6 +75,18 @@
       primary: 'bg-(--primary)'
     }
 
+    function Card({ children, className, ...props }) {
+      return (
+        <div className={`
+            bg-(--background) shadow-(--shadow)
+            rounded-2xl
+            ${className ? className : ''}
+          `}>
+          {children}
+        </div>
+      )
+    }
+
     function Button({
       variant = 'default',
       className,
@@ -102,11 +114,12 @@
     }
 
     function App() {
-      return (
-        <main className="py-28 px-4">
-        </main>
-      )
-    }
+  return (
+    <main className="py-28 px-4">
+      <Button variant="primary">CE</Button>
+    </main>
+  )
+}
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App />)
   </script>
